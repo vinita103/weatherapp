@@ -2,11 +2,12 @@ let weather={
   "apikey":"51747b13c9d02039f8ac95bbe69c2da2",
   fetchWeather:function(zipcode){
     fetch(
-      "http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&units=imperial&appid=51747b13c9d02039f8ac95bbe69c2da2"     
+      "https://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&units=imperial&appid=51747b13c9d02039f8ac95bbe69c2da2"     
    
     )
     .then((response) => response.json())
     .then((data) => this.displayWeather(data));
+    
   },
 
   displayWeather:function(data){
