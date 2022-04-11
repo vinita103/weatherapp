@@ -18,14 +18,14 @@ let weather={
     const query = name
     console.log(name,dt,icon,description,temp,temp_min,temp_max,humidity,speed)
     document.querySelector(".zipcode").innerText = "Weather in " + name;
-    document.querySelector(".date").innerText = (new Date(data.dt*1000));
+    document.querySelector(".date").innerText = (new Date);
     document.querySelector(".icon").src = "https://openweathermap.org/img/wn/"+ icon +"@2x.png";
     document.querySelector(".description").innerText =  description;
-    document.querySelector(".temp").innerText =  "Current: " + temp + "°F";
-    document.querySelector(".hightemp").innerText = " High: " + temp_max + "°F";
-    document.querySelector(".lowtemp").innerText = " Low: " + temp_min + "°F";
+    document.querySelector(".temp").innerText =  "Current: " + Math.round(temp) + "°F";
+    document.querySelector(".hightemp").innerText = " High: " + Math.round(temp_max) + "°F";
+    document.querySelector(".lowtemp").innerText = " Low: " + Math.round(temp_min) + "°F";
     document.querySelector(".humidity").innerText =  "Humidity: " + humidity + "%";
-    document.querySelector(".wind").innerText = "Wind Speed: " + speed + " km/hr";
+    document.querySelector(".wind").innerText = "Wind Speed: " + Math.round(speed) + " km/hr";
     
   },
   search: function () {
@@ -51,7 +51,7 @@ let weather={
 
   function tempConverter(temp) {
     temp = parseFloat(temp)
-    document.getElementById("Celcius").innerHTML= (temp-32)/1.8;
+    document.getElementById("Celcius").innerHTML= Math.round((temp-32)/1.8);
 
   };
 
